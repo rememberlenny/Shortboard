@@ -13,6 +13,22 @@
       // key: action
     },
 
+    /**
+     *
+     * _______________
+     * | status        \
+     * __________________
+     * | list-item      |
+     * | list-item      |
+     * | list-item      |
+     * | list-item      |
+     * __________________
+     * | [ input: css ] |
+     * | [ input: key ] |
+     * |     [ submit ] |
+     * __________________
+     */
+
     shortboardWrap: '<div id="shortboard-wrap"></div>',
     shortboardStatus: '<span id="shortboard-status"></span>',
     shortboardList: '<ul id="shortboard-list"></ul>',
@@ -28,6 +44,9 @@
       ' </div>'+
       ' <div class="col-50">'+
       '   <input id="shortboard-selector" type="text"></input>'+
+      ' </div>'+
+      ' <div class="col-100">'+
+      '   <button id="shortboard-submit"></button>'+
       ' </div>'+
       '</div>',
 
