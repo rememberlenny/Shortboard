@@ -9,24 +9,27 @@
 
   shortBoard = {
 
-    keyActions: {
-      // key: action
-    },
+    keyActions: [
+      {
+        // key: 'enter',
+        // action: '#home',
+      }
+    ],
 
     /**
+     *   # Shortcut Definer
      *
-     * _______________
-     * | status        \
-     * __________________
-     * | list-item      |
-     * | list-item      |
-     * | list-item      |
-     * | list-item      |
-     * __________________
-     * | [ input: css ] |
-     * | [ input: key ] |
-     * |     [ submit ] |
-     * __________________
+     *   ________________
+     *   |    *status*    \
+     *   __________________
+     *   |  + list-item   |
+     *   |  + list-item   |
+     *   |  + list-item   |
+     *   __________________
+     *   | [ input: css ] |
+     *   | [ input: key ] |
+     *   |     [ submit ] |
+     *   __________________
      */
 
     shortboardWrap: '<div id="shortboard-wrap"></div>',
@@ -76,8 +79,27 @@
      * @clickTarget: CSS selector for click target
      */
     loadShortcutDefiner: function(){
+      var self = this;
+      $('body').append(self.shortboardWrap);
+      var $container = $('#shortboard-wrap');
+      $container.append(self.shortboardStatus);
+      $container.append(self.shortboardList);
+      var $list = $('#shortboard-list');
 
-      $('body').append('')
+      if(self.keyActions.length > 0){
+
+        $.each(self.keyActions, function(i, item){
+          $list.append(self.shortboardItem);
+          var $lastItem = $('shortboard-item').last();
+          $lastItem.append(
+            self.keyActions[i]['key'];
+            );
+          $lastItem.append(
+            self.keyActions[i]['action'];
+            );
+        });
+      }
+
     },
 
     /**
