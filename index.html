@@ -66,10 +66,6 @@
       saveKeyCombo(event, self);
     });
 
-    $('#removeLastKey').on('click', function(){
-      removeLastKey();
-    });
-
     $('*').hover(
       function(){
         if(isSelectable==true){
@@ -156,14 +152,6 @@
       $('#clear-button').css('display', 'none');
     }
 
-    function showUndo(){
-      $('#undo-button').css('display', 'inline-block');
-    }
-
-    function hideUndo(){
-      $('#undo-button').css('display', 'none');
-    }
-
     function saveKeyCombo(event, self){
       var comboKeys = tempKey.join(' ');
       if(comboKeys !== ''){
@@ -171,7 +159,6 @@
         displayKeyCombos();
         clearSavedKey();
         showClear();
-        showUndo();
       }
     }
 
@@ -193,13 +180,6 @@
       savedKeys = [];
     }
 
-    function removeLastKey(){
-      keyCombos.pop();
-      displayKeyCombos();
-      if(keyCombos.length < 2){
-        hideUndo();
-      }
-    }
 
     function clearKeyCombos(){
       hideClear();
