@@ -9,7 +9,7 @@
     <a href="#" id="watch-button">WATCH</a>
     <a href="#" style="display:none;" id="stop-button">STOP</a>
     <a href="#" id="save-button">SAVE</a>
-    <a href="#" class="hidden" id="clear-button">CLEAR</a>
+    <a href="#" style="display:none;"  id="clear-button">CLEAR</a>
 
   </div>
   <script src="app.js"></script>
@@ -99,6 +99,14 @@
       $('#stop-button').css('display', 'none');
     }
 
+    function showClear(){
+      $('#clear-button').css('display', 'inline-block');
+    }
+
+    function hideClear(){
+      $('#clear-button').css('display', 'none');
+    }
+
     function keyboardWatcher(event, self){
       var pressedClass = $(self).attr('class');
       var pressedKey = pressedClass.split('key ');
@@ -110,7 +118,7 @@
       var comboKeys = savedKeys.join(' ');
       keyCombos.push(comboKeys);
       clearSavedKey();
-      console.log(keyCombos);
+      showClear();
     }
 
     function clearSavedKey(){
@@ -119,6 +127,7 @@
 
     function clearKeyCombos(){
       keyCombos = [];
+      hideClear();
     }
 
   </script>
