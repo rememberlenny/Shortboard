@@ -18,6 +18,7 @@
     var savedKeys = [];
     var keys      = {};
     var isWatch   = false;
+    var pastKey   = [];
 
     $(document).keydown(function (e) {
       keys[e.which] = true;
@@ -58,15 +59,20 @@
       if(isWatch == true){
         var tempKey = [];
         for (var i in keys) {
-            if (!keys.hasOwnProperty(i)) continue;
-             tempKey.push(i);
-             displayTempKey(tempKey);
+          if (!keys.hasOwnProperty(i)) continue;
+          tempKey.push(i);
         }
+        displayTempKey(tempKey);
       }
     }
 
     function displayTempKey(tempKey){
-      console.log(tempKey);
+      if (pastKey != tempKey){
+        pastKey = tempKey;
+        console.log(pastKey);
+      } else {
+
+      }
     }
 
     function beginWatchKeys(){
