@@ -366,6 +366,7 @@ ul, ol {padding: 0px; margin: 0;}
 
 
     <a href="#" id="save-button">SAVE</a>
+    <a href="#" id="clear-button">CLEAR</a>
 
   </div>
   <script src="app.js"></script>
@@ -374,26 +375,41 @@ ul, ol {padding: 0px; margin: 0;}
     var keyCombos = [];
     var savedKeys = [];
 
+    $('#clear-button').on('click', function(event){
+      var self = this;
+      clearKeyCombos(event, self);
+    });
+
     $('#save-button').on('click', function(event){
       var self = this;
       saveKeyCombo(event, self);
     });
+
     $('#keyboard li a').on('click', function(event){
       var self = this;
       keyboardWatcher(event, self);
     });
+
     function keyboardWatcher(event, self){
       var pressedClass = $(self).attr('class');
       var pressedKey = pressedClass.split('key ');
       savedKeys.push(pressedKey[1]);
       console.log(savedKeys);
     }
+
     function saveKeyCombo(event, self){
       var comboKeys = savedKeys.join(' ');
       keyCombos.push(comboKeys);
+      clearSavedKey();
       console.log(keyCombos);
+    }
+
+    function clearSavedKey(){
       savedKeys = [];
-      console.log(savedKeys);
+    }
+
+    function clearKeyCombos(){
+      keyCombos = [];
     }
 
   </script>
