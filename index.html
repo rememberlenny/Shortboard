@@ -365,15 +365,36 @@ ul, ol {padding: 0px; margin: 0;}
     </div>
 
 
+    <a href="#" id="save-button">SAVE</a>
+
   </div>
   <script src="app.js"></script>
   <script>
-    function keyboardWatcher(){
-      $('#keyboard li a').on('click', function(event){
-        var pressedClass = $(this).attr('class');
-        var pressedKey = pressedClass.split('key ');
-        console.log(pressedKey[1]);
-      });
+
+    var keyCombos = [];
+    var savedKeys = [];
+
+    $('#save-button').on('click', function(event){
+      var self = this;
+      saveKeyCombo(event, self);
+    });
+    $('#keyboard li a').on('click', function(event){
+      var self = this;
+      keyboardWatcher(event, self);
+    });
+    function keyboardWatcher(event, self){
+      var pressedClass = $(self).attr('class');
+      var pressedKey = pressedClass.split('key ');
+      savedKeys.push(pressedKey[1]);
+      console.log(savedKeys);
     }
+    function saveKeyCombo(event, self){
+      var comboKeys = savedKeys.join(' ');
+      keyCombos.push(comboKeys);
+      console.log(keyCombos);
+      savedKeys = [];
+      console.log(savedKeys);
+    }
+
   </script>
 </body>
