@@ -4,11 +4,12 @@
 
 
 
-
+    <div id="display-current-key"></div>
+    <a href="#" id="select-target-button">SELECT TARGET</a>
     <a href="#" id="watch-button">WATCH</a>
-    <a href="#" id="stop-button">STOP</a>
+    <a href="#" style="display:none;" id="stop-button">STOP</a>
     <a href="#" id="save-button">SAVE</a>
-    <a href="#" id="clear-button">CLEAR</a>
+    <a href="#" class="hidden" id="clear-button">CLEAR</a>
 
   </div>
   <script src="app.js"></script>
@@ -17,8 +18,11 @@
     var keyCombos = [];
     var savedKeys = [];
     var keys      = {};
-    var isWatch   = false;
     var pastKey   = [];
+    var tempKey = [];
+    var isWatch   = false;
+    var isSelectable = false;
+    var $displayKey = $('#display-current-key');
 
     $(document).keydown(function (e) {
       keys[e.which] = true;
@@ -27,7 +31,10 @@
 
     $(document).keyup(function (e) {
       delete keys[e.which];
-      printKeys();
+    });
+
+    $('#select-target-button').on('click', function(event){
+      selectTarget();
     });
 
     $('#watch-button').on('click', function(event){
@@ -50,14 +57,15 @@
       saveKeyCombo(event, self);
     });
 
-    $('#keyboard li a').on('click', function(event){
-      var self = this;
-      keyboardWatcher(event, self);
-    });
+    function selectTarget(){
+      if(isSelectable == true){
+
+      }
+    }
 
     function printKeys() {
       if(isWatch == true){
-        var tempKey = [];
+        tempKey = [];
         for (var i in keys) {
           if (!keys.hasOwnProperty(i)) continue;
           tempKey.push(i);
@@ -67,19 +75,28 @@
     }
 
     function displayTempKey(tempKey){
-      if (pastKey != tempKey){
-        pastKey = tempKey;
-        console.log(pastKey);
-      } else {
-
-      }
+      $displayKey.html(tempKey);
+      console.log(tempKey);
     }
 
     function beginWatchKeys(){
       isWatch = true;
+      hideWatch();
     }
+
     function stopWatchKeys(){
       isWatch = false;
+      showWatch();
+    }
+
+    function hideWatch(){
+      $('#watch-button').css('display', 'none');
+      $('#stop-button').css('display', 'inline-block');
+    }
+
+    function showWatch(){
+      $('#watch-button').css('display', 'inline-block');
+      $('#stop-button').css('display', 'none');
     }
 
     function keyboardWatcher(event, self){
