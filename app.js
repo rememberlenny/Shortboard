@@ -4,25 +4,16 @@
 
 
 ;(function($){
-  var $ = jQuery;
+
   var shortBoard = {} || shortBoard;
 
   shortBoard = {
 
-    /**
-     * Run Initialize on load
-     * @clickTarget: CSS selector for click target
-     */
-    initialize: function(clickTarget){
-      this.setClickTarget(clickTarget);
-    },
-
-
     keyActions: [
-      // {
-      //   key: 'enter',
-      //   action: '#home',
-      // }
+      {
+        // key: 'enter',
+        // action: '#home',
+      }
     ],
 
     /**
@@ -41,11 +32,10 @@
      *   __________________
      */
 
-    shortboardWrap:   '<div id="shortboard-wrap"></div>',
+    shortboardWrap: '<div id="shortboard-wrap"></div>',
     shortboardStatus: '<span id="shortboard-status"></span>',
-    shortboardList:   '<ul id="shortboard-list"></ul>',
-    shortboardItem:   '<li class="shortboard-item"></li>',
-
+    shortboardList: '<ul id="shortboard-list"></ul>',
+    shortboardItem: '<li class="shortboard-item"></li>',
     /**
      * Template for shortboard controls
      * Field for css selector and keyboard shortcut
@@ -63,22 +53,26 @@
       ' </div>'+
       '</div>',
 
+
     /**
      *  On keypress, check keyActions
      *  @keyPressed: Button pressed
      */
     keyboardEvents: function(keyPressed){
-      var self = this;
-      Mousetrap.bind(keyPressed, function(){
-        self.keyActions.forEach(function(entry){
-          if(entry == keyPressed){
-
-          }
-        });
+      $.on('keypress', function(e){
+        // e.target;
+        // if( pressedKey === up ){
+        // }
       });
+    }
+
+    /**
+     * Run Initialize on load
+     * @clickTarget: CSS selector for click target
+     */
+    initialize: function(clickTarget){
+      this.setClickTarget(clickTarget);
     },
-
-
 
     /**
      * Load UI to determine shortcuts
@@ -93,15 +87,16 @@
       var $list = $('#shortboard-list');
 
       if(self.keyActions.length > 0){
+
         $.each(self.keyActions, function(i, item){
           $list.append(self.shortboardItem);
           var $lastItem = $('shortboard-item').last();
           $lastItem.append(
-            self.keyActions[i]['key']
-          );
+            self.keyActions[i]['key'];
+            );
           $lastItem.append(
-            self.keyActions[i]['action']
-          );
+            self.keyActions[i]['action'];
+            );
         });
       }
 
@@ -112,11 +107,7 @@
      * @clickTarget: CSS selector for click target
      */
     saveKeyClickPair: function(clickTarget, keyboardTarget){
-      var keyPairs = {
-        key: keyboardTarget,
-        action: clickTarget
-      }
-      this.keyActions.push(keyPairs);
+      this.keyActions[keyboardTarget] = clickTarget;
     },
 
     /**
@@ -133,7 +124,7 @@
      */
     doClickTarget: function(clickTarget){
       $(clickTarget).click();
-    },
+    }
 
     /**
      * Set the keyboard button to trigger
