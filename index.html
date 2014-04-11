@@ -1,3 +1,6 @@
+<head>
+  <script src="libs/jquery-2.1.0.min.js"></script>
+  <script src="libs/mousetrap.js"></script>
 
 
 <!-- Keyboard from http://cssdeck.com/labs/apple-keyboard-via-css3 -->
@@ -259,6 +262,11 @@ ul, ol {padding: 0px; margin: 0;}
         .cf {zoom:1;}
 </style>
 
+</head>
+<body>
+  <div id="wrapper">
+
+
 <div id="keyboard">
       <ul class="cf">
           <li><a href="#" class="key c27 fn"><span id="esc">esc</span></a></li>
@@ -355,3 +363,17 @@ ul, ol {padding: 0px; margin: 0;}
             </ol>
         </ul>
     </div>
+
+
+  </div>
+  <script src="app.js"></script>
+  <script>
+    function keyboardWatcher(){
+      $('#keyboard li a').on('click', function(event){
+        var pressedClass = $(this).attr('class');
+        var pressedKey = pressedClass.split('key ');
+        console.log(pressedKey[1]);
+      });
+    }
+  </script>
+</body>
