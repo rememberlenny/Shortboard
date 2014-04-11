@@ -5,11 +5,16 @@
 
 
     <div id="display-current-key"></div>
-    <a href="#" id="select-target-button">SELECT TARGET</a>
-    <a href="#" id="watch-button">WATCH</a>
-    <a href="#" style="display:none;" id="stop-button">STOP</a>
-    <a href="#" id="save-button">SAVE</a>
-    <a href="#" style="display:none;"  id="clear-button">CLEAR</a>
+    <div class="DOM">
+      <a href="#" id="select-target-button">SELECT TARGET</a>
+    </div>
+
+    <div class="keyboard_related">
+      <a href="#" id="watch-button">WATCH</a>
+      <a href="#" style="display:none;" id="stop-button">STOP</a>
+      <a href="#" id="save-button">SAVE</a>
+      <a href="#" style="display:none;"  id="clear-button">CLEAR</a>
+    </div>
 
   </div>
   <script src="app.js"></script>
@@ -76,6 +81,7 @@
 
     function displayTempKey(tempKey){
       $displayKey.html(tempKey);
+      pastKey = tempKey;
       console.log(tempKey);
     }
 
@@ -107,18 +113,13 @@
       $('#clear-button').css('display', 'none');
     }
 
-    function keyboardWatcher(event, self){
-      var pressedClass = $(self).attr('class');
-      var pressedKey = pressedClass.split('key ');
-      savedKeys.push(pressedKey[1]);
-      console.log(savedKeys);
-    }
-
     function saveKeyCombo(event, self){
-      var comboKeys = savedKeys.join(' ');
-      keyCombos.push(comboKeys);
-      clearSavedKey();
-      showClear();
+      var comboKeys = tempKey.join(' ');
+      if(comboKeys !== ''){
+        keyCombos.push(comboKeys);
+        clearSavedKey();
+        showClear();
+      }
     }
 
     function clearSavedKey(){
