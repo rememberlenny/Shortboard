@@ -64,7 +64,7 @@
         // if( pressedKey === up ){
         // }
       });
-    }
+    },
 
     /**
      * Run Initialize on load
@@ -92,10 +92,10 @@
           $list.append(self.shortboardItem);
           var $lastItem = $('shortboard-item').last();
           $lastItem.append(
-            self.keyActions[i]['key'];
+            self.keyActions[i]['key']
             );
           $lastItem.append(
-            self.keyActions[i]['action'];
+            self.keyActions[i]['action']
             );
         });
       }
@@ -124,7 +124,7 @@
      */
     doClickTarget: function(clickTarget){
       $(clickTarget).click();
-    }
+    },
 
     /**
      * Set the keyboard button to trigger
