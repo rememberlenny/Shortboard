@@ -14,7 +14,10 @@
       <a href="#" style="display:none;" id="stop-button">STOP</a>
       <a href="#" id="save-button">SAVE</a>
       <a href="#" style="display:none;"  id="clear-button">CLEAR</a>
+      <a href="#" style="display:none;"  id="undo-button">REMOVE LAST</a>
     </div>
+
+    <ul id="current-keys"></ul>
 
   </div>
   <script src="app.js"></script>
@@ -25,6 +28,7 @@
     var keys      = {};
     var pastKey   = [];
     var tempKey = [];
+    var keyComboDisplay = [];
     var isWatch   = false;
     var isSelectable = false;
     var $displayKey = $('#display-current-key');
@@ -62,10 +66,49 @@
       saveKeyCombo(event, self);
     });
 
-    function selectTarget(){
+    $('#removeLastKey').on('click', function(){
+      removeLastKey();
+    });
+
+    $('*').hover(
+      function(){
+        if(isSelectable==true){
+          $(this).css('border', '1px solid red');
+        }
+      },
+      function(){
+        if(isSelectable==true){
+          $(this).css('border', 'none');
+        }
+      }
+    );
+
+    $('*').on('click', function(e){
+      if(isSelectable==true){
+        console.log(e.target);
+        return false;
+      }
+    });
+
+
+    function createBorder(e, self){
+      console.log(self);
+      if(e.type == 'mouseenter'){
+        $(self).css('border', '1px solid red');
+      } else {
+        $(self).css('border', 'none');
+      }
+    }
+
+    function scanForClick(){
       if(isSelectable == true){
 
       }
+    }
+
+    function selectTarget(){
+      isSelectable = true;
+      scanForClick();
     }
 
     function printKeys() {
@@ -113,22 +156,55 @@
       $('#clear-button').css('display', 'none');
     }
 
+    function showUndo(){
+      $('#undo-button').css('display', 'inline-block');
+    }
+
+    function hideUndo(){
+      $('#undo-button').css('display', 'none');
+    }
+
     function saveKeyCombo(event, self){
       var comboKeys = tempKey.join(' ');
       if(comboKeys !== ''){
         keyCombos.push(comboKeys);
+        displayKeyCombos();
         clearSavedKey();
         showClear();
+        showUndo();
       }
+    }
+
+    function displayKeyCombos(){
+      keyComboDisplay = prepareKeyCombos();
+      $('#current-keys').html(keyComboDisplay);
+    }
+
+    function prepareKeyCombos(){
+      keyComboDisplay = [];
+      for(i = 0; i < keyCombos.length; i++){
+        keyComboDisplay.push('<li>' + keyCombos[i] + '</li>');
+      }
+      keyComboDisplay.join('');
+      return keyComboDisplay;
     }
 
     function clearSavedKey(){
       savedKeys = [];
     }
 
+    function removeLastKey(){
+      keyCombos.pop();
+      displayKeyCombos();
+      if(keyCombos.length < 2){
+        hideUndo();
+      }
+    }
+
     function clearKeyCombos(){
-      keyCombos = [];
       hideClear();
+      keyCombos = [];
+      displayKeyCombos();
     }
 
   </script>
