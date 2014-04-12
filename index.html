@@ -1,6 +1,7 @@
 <head>
-  <script src="libs/jquery-2.1.0.min.js"></script>
-
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <!--
 
 1. Select a CSS selector with mouse
@@ -13,7 +14,7 @@
 
  -->
 
-<div id="box-container-LKBG" style="position: absolute; top: 10%; right: 10%; background: #fefefe; padding: .6em 1em; border: 3px solid #ccc;">
+<div id="box-container-LKBG" style="background-color: rgb(254, 254, 254);padding: 0.6em 1em;border: 3px solid rgb(204, 204, 204);display: inline-block;position: absolute;">
   <div id="display-current-key-LKBG"></div>
   <div class="DOM" style="display: inline-block">
     <a href="#" id="select-target-button-LKBG">
@@ -51,8 +52,9 @@
   "></div>CLEAR</a>
     <a href="#" style="display:none;" id="undo-button-LKBG">REMOVE LAST</a>
   </div>
-  <hr>
 
+
+  <hr>
   <ul id="current-keys"></ul>
 </div>
 
@@ -237,6 +239,8 @@
       keyCombos = [];
       displayKeyCombos();
     }
+
+    jQuery('#box-container-LKBG').draggable();
 
   </script>
 </body>
