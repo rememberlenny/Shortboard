@@ -14,10 +14,14 @@
 
  -->
 
+
 <div id="box-container-LKBG" style="background-color: rgb(254, 254, 254);padding: 0.6em 1em;border: 3px solid rgb(204, 204, 204);display: inline-block;position: absolute;">
   <div id="display-current-key-LKBG"></div>
   <div class="DOM" style="display: inline-block">
-    <a href="#" id="select-target-button-LKBG">
+    <a href="#" id="select-target-button-LKBG" style="text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);">
       <div style="  background-size: cover;
     width:            50px;
     height:           50px;
@@ -26,31 +30,46 @@
 
   <div class="keyboard_related" style="display: inline-block">
     <div style="display: inline-block">
-      <a href="#" id="watch-button-LKBG">
+      <a href="#" id="watch-button-LKBG"style="text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);">
         <div style="background-size: cover;
   width:            50px;
   height:           50px;
   background-image: url('data:image/png;base64,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');"></div>WATCH</a>
     </div>
     <div style="display: inline-block">
-      <a href="#" style="display:none;" id="stop-button-LKBG">
+      <a href="#" style="display:none; text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);" id="stop-button-LKBG">
         <div style=" background-size: contain; width: 50px; height: 50px;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAQAAAC2YthKAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAFQAAABUANSq9IMAAARASURBVGjezZrJUlNREIY/8TksQlKWi5tBEC0gWCKIC8uFwxNY5cs5oFtLGQRESxwIg24M4JJXoNRcF0m8Q869Z+ob6d5Sp366///POd0XdDHBB1pc0/6dW1zkFW1ucc73oCordOiwyZUCYJZY4jchLeb9DqqxTNjL94wLwyzznD+90w+Yc69qg9V/MENCtrgqCLPCSzqx0w9YcIMasJKAGRLyjgkhmKVYNfu5y02Xag7C7BJAAmqFpQGYTgSopZqerKovAcZ4oYQZErJnQ4BqTELqqvrIakzR9HjuM2d2UFbTk1AnHWFWeJGQkCoPmNdXNTCA2SWAi6+WMriZzl2dr9Y0TfeTVVnTdGNZNXIkpEo7Xy2nfFOX+1myCiyqGUE1lVXJopqRA8ypqmnGzUECmHC1YsjNQQLcTFa1Ztn0pKx0DpDnm3pZLUQH6XxTX9XxXJj2TU9ytUeAScemJ6FmyapiKSE1AeYZgY/eMENCNqgrYF7gmVc1+7nDLLS8/+M+1MZA05/wW+TsPa7DOG+EoCavK7a+mZ2tvvlXPTSfzEhWLr6pzv34z2nAitCxH5jE7Ophljvpy3SDt0JV3eCukIRCvqkuJzXWRKrQ4URMQgsoI2BZqGES2cp7QdXFZOWbB7obacDqGaiq0UCi9t8JYPxslvNVl9y3Ge/I+apt7thOoeoCd6qCq/n/ZKV9e2ZzdZiyarlMnvrh80SxS61vng0CeA9yAeqeLyp97vk0PclVmetKFswFf4gRAZYL8tUdqWpGBCjCV70lpK6qtKxEJKSKKm8ECeDlm7q4w4kQzFMeFwezwnN+CQHtOI6CDcJ0WmyehUC1mRabp/g2sCz2Tk+n6DZwtJBqRgQQ2gZWCoXZJYAAVJ9psU1VPQngOy0ekqzkRl1mUB23gaPivqkngIOvFuOb4rKSmxbbppWvFuubeqiGsnLdskkSwICrpaH4pi6128Dh+aa+qjkEGK5v6qFmyOoCT4WqeSoEdV21DSzzTGhF0OIRK0Jri620r8rdN7vTYrnxWuK6Irdli97pNdaECPDPVy+xJLZli7/TA1aF/v2er74WOu77wAypwbpQVTeYgEOhpt9WfFNzmU2Rbh2yCDcEPi3InnpIyKrNPc4DzPDFs5p5MyTfbeAxDxnpHzblAVU/6go85qttHkQwAZpsOx1ktmVz3QYecT8JE2Car9YHme+Fqg6+ehRvejym+GR1kN2WLbD8YW1zP/szwiafC6hmJCvzqfVxmpuDVTWTlduWzVRWh1lNj8eMgazcp8UmvnrIPbPvnGc0svJbEeiuK8cm1ezHVA5X/VcEeWuLto6b6WhmOIDMli1rG6j0TV2ofFVuy6by1SObpiehJmUlu2VL+2rbVEKqaMbMSn7LFr+u/LTlZjqme1CL2bL1fbXt2vR4NNkucMtWY5kfPk2PxyyzBcEEmGCxey3Oj7/L0iv81CiIMAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wMS0xMFQxMjozMzo1My0wNjowMHMgptMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDEtMTBUMTI6MzM6NTMtMDY6MDACfR5vAAAAJnRFWHRzdmc6YmFzZS11cmkAZmlsZTovLy90bXAvdG1wYjRhdXNxLnN2Z1MZJgUAAAAASUVORK5CYII=');"></div>STOP</a>
     </div>
     <div style="display: inline-block">
-      <a href="#" id="save-button-LKBG">
+      <a href="#" id="save-button-LKBG" style="text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);">
         <div style=" background-size: contain;
     width:            50px;
     height:           50px;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAQAAAC2YthKAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAHQAAAB0AEaC1RcAAANHSURBVGje7ZpPSFRBHMc/a6u7oVYKmeYt6hRFUUFgRN4C6RRIeKoO3QIPuUEamQodrNROGSmB1kJFZoQQJQQdOtUh66KFGWaKfzdN3dZ1O9hhffvWN2/em3ar+e5lGebP582f32/mNwNaWlpaWk7kMU0rJJ/M3/9DDBEVrG09ReSQIU2zTIhRwmKgO6lgH1vIAiCDl1QxJ9CInzKOsYONph8vCjpFPw/pZckqaylviBKL+/WwQaCJbGqZWFVO/jfMWXxrN7eNVwnFngqAejjJlEuYMWKMUGZsYvV8Osp+qSHbzHHypAc8UUWUk50c1M9u/FIVF7PLRUyAg+QkB/WRK1mtz1itY+XhTQ7qkTYsHgcr3VwZayfEXG5OJXm66q8B9TqvIokiPOetUM4SjljPcZWgj2gTynmew6yzyqRy6MU6wWMNqRrUVWlQDZru0qAaNN2lQTVoukuDpido1EaqpOzt8LdTTpHJWbXQGNcAsqhgd0JqjEGCjKkFzaWK08IlvJRSapIeJpcr1tE6o+wMfSYFLpyxfBTIhCvsgM7QwRfHoO8J2u9Pe6DLdFPFsCPMPip5LRORsbfqo3RxiW/SmAME6JULHNk1TxHucplxKcxPBHgm+4327WiYduqYtF1uiADd8mE4GYMfoZ2rzNgqM0qNE0xZzzRPC9eZtYF5gaAzTyXrQhdo4obQtQ5MUkunU4cq7+vnaKSVRct8M9Rxh4gzTGebkhD1tJrfs8XlaeCWRR7loCsYHWv01g/BXlcOChPU0JHEJS7QRIvgPFYOCmNUc99kqczTzDW3MN3ZOI9STZfBRka4TaNNW6scFD4T4Ekcaph2Gph2D9O9M9NgnB9fIki95H5AOSj0E+AFEOUBF/nqLqa7tyJ9VHKKOdoc7lmVg8IHzrmPuKL/7FyvQTWoBv23QNU+4IiJ1W9t8Is5wYJCUA97RWJR1qB7uKkQcwXVFdA0mcdpAWEf1O1nVopABdffH1ECSTzoT/eOYo713XhcjAdd5KO7NxkO1Md8ctAYPbxLNSEAIe4ZQ3Cr3xyNM80BNqUYc5ZmOo3xFeM693KIM5RYvTFWpigDtPE4MaRpZpD8bCU/RRZ2lhFCKWlZS8uhfgHPgxF016mo5gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wMS0xMFQxMTozMzoxNi0wNjowMBiY60AAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDEtMTBUMTE6MzM6MTYtMDY6MDBpxVP8AAAAJnRFWHRzdmc6YmFzZS11cmkAZmlsZTovLy90bXAvdG1weDVJVXdnLnN2Z+XxQywAAAAASUVORK5CYII=');"></div>SAVE</a>
     </div>
-    <a href="#" style="display:none;" id="clear-button-LKBG">
+    <a href="#" style="display:none;text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);" id="clear-button-LKBG">
       <div style="background-size: cover;
   width:            50px;
   height:           50px;
   background-image: url('data:image/png;base64,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');
   "></div>CLEAR</a>
-    <a href="#" style="display:none;" id="undo-button-LKBG">REMOVE LAST</a>
+    <a href="#" style="display:none;text-decoration: none;
+font-family: helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);" id="undo-button-LKBG">REMOVE LAST</a>
   </div>
 
 
@@ -58,189 +77,5 @@
   <ul id="current-keys"></ul>
 </div>
 
-
   <script src="app.js"></script>
-  <script>
-
-    var keyCombos = [];
-    var savedKeys = [];
-    var keys      = {};
-    var pastKey   = [];
-    var tempKey = [];
-    var keyComboDisplay = [];
-    var isWatch   = false;
-    var isSelectable = false;
-    var $displayKey = $('#display-current-key-LKBG');
-
-    // **
-    // * Keybaord related events
-    // *
-
-    $(document).keydown(function (e) {
-      keys[e.which] = true;
-      printKeys();
-    });
-
-    $(document).keyup(function (e) {
-      delete keys[e.which];
-    });
-
-    $('#watch-button-LKBG').on('click', function(event){
-      var self = this;
-      beginWatchKeys();
-    });
-
-    $('#stop-button-LKBG').on('click', function(event){
-      var self = this;
-      stopWatchKeys();
-    });
-
-    $('#clear-button-LKBG').on('click', function(event){
-      var self = this;
-      clearKeyCombos(event, self);
-    });
-
-    $('#save-button-LKBG').on('click', function(event){
-      var self = this;
-      saveKeyCombo(event, self);
-    });
-
-    // **
-    // * Mouse related events
-    // *
-
-    $('#select-target-button-LKBG').on('click', function(event){
-      selectTarget();
-    });
-
-    $('*').hover(
-      function(){
-        if(isSelectable==true){
-          $(this).css('border', '1px solid red');
-        }
-      },
-      function(){
-        if(isSelectable==true){
-          $(this).css('border', 'none');
-        }
-      }
-    );
-
-    $('*').on('click', function(e){
-      if(isSelectable==true){
-        console.log(e.target);
-        return false;
-      }
-    });
-
-    // **
-    // * Mouse related actionss
-    // *
-
-    function createBorder(e, self){
-      console.log(self);
-      if(e.type == 'mouseenter'){
-        $(self).css('border', '1px solid red');
-      } else {
-        $(self).css('border', 'none');
-      }
-    }
-
-    function scanForClick(){
-      if(isSelectable == true){
-      }
-    }
-
-    function selectTarget(){
-      isSelectable = true;
-      scanForClick();
-    }
-
-    // **
-    // * Keyboard related Actions
-    // *
-
-    function printKeys() {
-      if(isWatch == true){
-        tempKey = [];
-        for (var i in keys) {
-          if (!keys.hasOwnProperty(i)) continue;
-          tempKey.push(i);
-        }
-        displayTempKey(tempKey);
-      }
-    }
-
-    function displayTempKey(tempKey){
-      $displayKey.html(tempKey);
-      pastKey = tempKey;
-      console.log(tempKey);
-    }
-
-    function beginWatchKeys(){
-      isWatch = true;
-      hideWatch();
-    }
-
-    function stopWatchKeys(){
-      isWatch = false;
-      showWatch();
-    }
-
-    function hideWatch(){
-      $('#watch-button-LKBG').css('display', 'none');
-      $('#stop-button-LKBG').css('display', 'inline-block');
-    }
-
-    function showWatch(){
-      $('#watch-button-LKBG').css('display', 'inline-block');
-      $('#stop-button-LKBG').css('display', 'none');
-    }
-
-    function showClear(){
-      $('#clear-button-LKBG').css('display', 'inline-block');
-    }
-
-    function hideClear(){
-      $('#clear-button-LKBG').css('display', 'none');
-    }
-
-    function saveKeyCombo(event, self){
-      var comboKeys = tempKey.join(' ');
-      if(comboKeys !== ''){
-        keyCombos.push(comboKeys);
-        displayKeyCombos();
-        clearSavedKey();
-        showClear();
-      }
-    }
-
-    function displayKeyCombos(){
-      keyComboDisplay = prepareKeyCombos();
-      $('#current-keys').html(keyComboDisplay);
-    }
-
-    function prepareKeyCombos(){
-      keyComboDisplay = [];
-      for(i = 0; i < keyCombos.length; i++){
-        keyComboDisplay.push('<li>' + keyCombos[i] + '</li>');
-      }
-      keyComboDisplay.join('');
-      return keyComboDisplay;
-    }
-
-    function clearSavedKey(){
-      savedKeys = [];
-    }
-
-
-    function clearKeyCombos(){
-      hideClear();
-      keyCombos = [];
-      displayKeyCombos();
-    }
-
-    jQuery('#box-container-LKBG').draggable();
-
-  </script>
 </body>
