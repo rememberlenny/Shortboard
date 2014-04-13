@@ -72,6 +72,7 @@
 
     $('*').on('click', function(e){
       if(isSelectable==true){
+        checkIfTargetIsSelect();
         console.log(e.target);
         return false;
       }
@@ -80,6 +81,21 @@
     // **
     // * Mouse related actionss
     // *
+
+    function checkIfTargetIsSelect(){
+      console.log( $(this).attr() );
+      if($(this).attr('id') == 'select-button-icon-LKBG'){
+        isSelectable=false;
+        returnAllBorderToOriginal();
+      }
+    }
+
+    function returnAllBorderToOriginal(){
+      $('[data-saved-border!=""]').each( function(i, item){
+        var savedBorder = $(item).data('saved-border');
+        $(item).css('border', savedBorder);
+      });
+    }
 
     function createBorder(e, self){
       console.log(self);
