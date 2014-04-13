@@ -24,12 +24,11 @@
 
     $('#watch-button-LKBG').on('click', function(event){
       var self = this;
-      beginWatchKeys();
-    });
-
-    $('#stop-button-LKBG').on('click', function(event){
-      var self = this;
-      stopWatchKeys();
+      if( !isWatch ){
+        beginWatchKeys();
+      } else {
+        stopWatchKeys();
+      }
     });
 
     $('#clear-button-LKBG').on('click', function(event){
@@ -97,21 +96,21 @@
     }
 
     function selectTarget(){
+      changeSelectIcon();
       isSelectable = true;
       scanForClick();
-      changeSelectIcon();
     }
     
     function deselectTarget(){
-      isSelectable = false;
       changeSelectIcon();
+      isSelectable = false;
     }
 
     function changeSelectIcon(){
       if(isSelectable == true){
-
+        $('#select-button-icon-LKBG').removeClass('stop-button-icon-LKBG'); 
       } else {
-
+        $('#select-button-icon-LKBG').addClass('stop-button-icon-LKBG'); 
       }
     }
 
@@ -147,13 +146,11 @@
     }
 
     function hideWatch(){
-      $('#watch-button-LKBG').parent().addClass('hidden-LKBG');
-      $('#stop-button-LKBG').parent().removeClass('hidden-LKBG');
+      $('#watch-button-icon-LKBG').addClass('stop-button-icon-LKBG')
     }
 
     function showWatch(){
-      $('#watch-button-LKBG').parent().removeClass('hidden-LKBG')
-      $('#stop-button-LKBG').parent().addClass('hidden-LKBG')
+      $('#watch-button-icon-LKBG').removeClass('stop-button-icon-LKBG')
     }
 
     function showClear(){
