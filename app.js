@@ -53,12 +53,16 @@
     $('*').hover(
       function(){
         if(isSelectable==true){
+          var savedBorder = $(this).css('border');
+          $(this).data('saved-border', savedBorder);
+          console.log(savedBorder);
           $(this).css('border', '1px solid red');
         }
       },
       function(){
         if(isSelectable==true){
-          $(this).css('border', 'none');
+          var savedBorder = $(this).data('saved-border');
+          $(this).css('border', savedBorder);
         }
       }
     );
