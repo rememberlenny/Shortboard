@@ -21,8 +21,13 @@
   display: inline-block;
   text-align: center;
   background-color: #FFF;
-  padding: .1em;
+  padding: .3em;
   margin: .1em;
+  min-width:55px;
+  min-height:50px;
+}
+.inline-block-LKBG:hover{
+  background-color: rgb(234, 234, 234);
 }
 
 #box-container-LKBG{
