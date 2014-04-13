@@ -47,7 +47,11 @@
     // *
 
     $('#select-target-button-LKBG').on('click', function(event){
-      selectTarget();
+      if(isSelectable == false){
+        selectTarget();
+      } else {
+        deselectTarget();
+      }
     });
 
     $('*').hover(
@@ -95,6 +99,16 @@
     function selectTarget(){
       isSelectable = true;
       scanForClick();
+      changeSelectIcon();
+    }
+    
+    function deselectTarget(){
+      isSelectable = false;
+      changeSelectIcon();
+    }
+
+    function changeSelectIcon(){
+      
     }
 
     // **
