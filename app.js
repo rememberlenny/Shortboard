@@ -108,7 +108,11 @@
     }
 
     function changeSelectIcon(){
-      
+      if(isSelectable == true){
+
+      } else {
+
+      }
     }
 
     // **
@@ -143,21 +147,21 @@
     }
 
     function hideWatch(){
-      $('#watch-button-LKBG').css('display', 'none');
-      $('#stop-button-LKBG').css('display', 'inline-block');
+      $('#watch-button-LKBG').parent().addClass('hidden-LKBG');
+      $('#stop-button-LKBG').parent().removeClass('hidden-LKBG');
     }
 
     function showWatch(){
-      $('#watch-button-LKBG').css('display', 'inline-block');
-      $('#stop-button-LKBG').css('display', 'none');
+      $('#watch-button-LKBG').parent().removeClass('hidden-LKBG')
+      $('#stop-button-LKBG').parent().addClass('hidden-LKBG')
     }
 
     function showClear(){
-      $('#clear-button-LKBG').css('display', 'inline-block');
+      $('#clear-button-LKBG').parent().removeClass('hidden-LKBG')
     }
 
     function hideClear(){
-      $('#clear-button-LKBG').css('display', 'none');
+      $('#clear-button-LKBG').parent().addClass('hidden-LKBG')
     }
 
     function saveKeyCombo(event, self){
