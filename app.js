@@ -58,7 +58,6 @@
         if(isSelectable==true){
           var savedBorder = $(this).css('border');
           $(this).data('saved-border', savedBorder);
-          console.log(savedBorder);
           $(this).css('border', '1px solid red');
         }
       },
@@ -71,8 +70,9 @@
     );
 
     $('*').on('click', function(e){
+      var self = this;
       if(isSelectable==true){
-        checkIfTargetIsSelect();
+        checkIfTargetIsSelect(self);
         console.log(e.target);
         return false;
       }
@@ -82,16 +82,15 @@
     // * Mouse related actionss
     // *
 
-    function checkIfTargetIsSelect(){
-      console.log( $(this).attr() );
-      if($(this).attr('id') == 'select-button-icon-LKBG'){
+    function checkIfTargetIsSelect(self){
+      if( $(self).attr('id') == 'select-button-icon-LKBG' ){
         isSelectable=false;
         returnAllBorderToOriginal();
       }
     }
 
     function returnAllBorderToOriginal(){
-      $('[data-saved-border!=""]').each( function(i, item){
+      $.each( $('[data-saved-border!=""]'), function(i, item){
         var savedBorder = $(item).data('saved-border');
         $(item).css('border', savedBorder);
       });
@@ -112,22 +111,12 @@
     }
 
     function selectTarget(){
-      changeSelectIcon();
       isSelectable = true;
       scanForClick();
     }
-    
-    function deselectTarget(){
-      changeSelectIcon();
-      isSelectable = false;
-    }
 
-    function changeSelectIcon(){
-      if(isSelectable == true){
-        $('#select-button-icon-LKBG').removeClass('stop-button-icon-LKBG'); 
-      } else {
-        $('#select-button-icon-LKBG').addClass('stop-button-icon-LKBG'); 
-      }
+    function deselectTarget(){
+      isSelectable = false;
     }
 
     // **
@@ -141,14 +130,14 @@
           if (!keys.hasOwnProperty(i)) continue;
           tempKey.push(i);
         }
-        displayTempKey(tempKey);
+        joinedKey = tempKey.join(' ');
+        displayTempKey(tempKey, joinedKey);
       }
     }
 
-    function displayTempKey(tempKey){
-      $displayKey.html(tempKey);
+    function displayTempKey(tempKey, joinedKey){
+      $displayKey.html(joinedKey);
       pastKey = tempKey;
-      console.log(tempKey);
     }
 
     function beginWatchKeys(){

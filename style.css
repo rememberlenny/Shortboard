@@ -13,6 +13,16 @@
   font-size: 12px;
 }
 
+#display-current-key-LKBG{
+  padding-left: 2.5em;
+  margin-top: 1em;
+  background: rgb(255, 255, 255);
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-weight: bold;
+  font-size: 1.2em !important;
+}
+
 .hidden-LKBG{
   display: none !important;
 }
