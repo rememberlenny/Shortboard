@@ -5,6 +5,16 @@
   margin: 0 auto .4em;
 }
 
+#box-container-LKBG{
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+}
+
 .text-style-LKBG{
   text-decoration: none;
   font-family: helvetica;
@@ -37,11 +47,11 @@
   min-height:50px;
 }
 .inline-block-LKBG:hover{
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(244, 244, 244);
 }
 
 #box-container-LKBG{
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(244, 244, 244);
   padding: 0.3em .4em;
   border: 3px solid rgb(204, 204, 204);
   display: inline-block;
